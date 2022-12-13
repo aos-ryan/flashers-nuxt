@@ -6,7 +6,7 @@
     <NuxtLink to="/boulders"> 
       <div>Boulders</div> 
     </NuxtLink>
-    <NuxtLink> 
+    <NuxtLink to="/about"> 
       <div>About</div>
     </NuxtLink>
   </nav>
