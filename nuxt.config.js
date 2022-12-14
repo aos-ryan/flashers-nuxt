@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: ['nuxt-graphql-client'],
   runtimeConfig: {
+    openaiApiKey: process.env.OPENAI_KEY,
     public: {
       GQL_HOST: process.env.NUXT_GQL_HOST,
     }

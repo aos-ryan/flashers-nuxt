@@ -6,8 +6,8 @@
     <NuxtLink to="/boulders"> 
       <div>Boulders</div> 
     </NuxtLink>
-    <NuxtLink to="/learn"> 
-      <div>Learn</div>
+    <NuxtLink to="/create"> 
+      <div>Create New Climb</div>
     </NuxtLink>
     <NuxtLink to="/about"> 
       <div>About</div>
