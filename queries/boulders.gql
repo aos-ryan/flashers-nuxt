@@ -1,0 +1,64 @@
+query allBoulders {
+  boulderCollection {
+    items {
+      sys {
+        id
+      }
+      name
+      grade
+      description {
+        json
+      }
+      image {
+        url
+      }
+      location {
+        lat
+        lon
+      }
+      featured
+    }
+  }
+}
+query featuredBoulders {
+  boulderCollection(where: {featured: true}) {
+    items {
+      sys {
+        id
+      }
+      name
+      grade
+      description {
+        json
+      }
+      image {
+        url
+      }
+      location {
+        lat
+        lon
+      }
+      featured
+    }
+  }
+}
+
+query boulderById ($id: String!) {
+  boulder (id: $id) {
+    sys {
+      id
+    }
+      name
+      grade
+      description {
+        json
+      }
+      image {
+        url
+      }
+      location {
+        lat
+        lon
+      }    
+  }
+}

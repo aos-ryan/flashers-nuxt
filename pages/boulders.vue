@@ -1,17 +1,12 @@
 <script setup>
-
+const { data } = await useAsyncGql('allBoulders');
 </script>
+
 <template>
 <div class="sidebar">
 <ul>
-  <li>
-    <NuxtLink to="/boulders/1">Boulder 1</NuxtLink>
-  </li>
-  <li>
-    <NuxtLink to="/boulders/2">Boulder 2</NuxtLink>
-  </li>
-  <li>
-    <NuxtLink to="/boulders/3">Boulder 3</NuxtLink>
+  <li v-for="boulder in data?.boulderCollection.items">
+    <NuxtLink :to="(/boulders/ + boulder.sys.id)">{{boulder.name}}</NuxtLink>
   </li>
 </ul>
 </div>
