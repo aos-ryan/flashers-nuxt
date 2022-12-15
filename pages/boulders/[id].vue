@@ -2,15 +2,31 @@
   <article>
     <p>{{data.boulder.name}}</p>
     <p>{{data.boulder.grade}}</p>
-    <p>{{data.boulder.location.lat}}</p>
-    <p>{{data.boulder.location.lon}}</p>
-    <p>{{data.boulder.description.json.content[0].content[0].value}}</p>
-    <img :src="`${data.boulder.image?.url}`"/>
+    <!-- <p>{{data.boulder.location.lat}}</p>
+      <p>{{data.boulder.location.lon}}</p> -->
+      <img :src="`${data.boulder.image?.url}`"/>
+      <p>{{data.boulder.description.json.content[0].content[0].value}}</p>
+      <GMapMap
+      :center="{lat: data.boulder.location.lat, lng: data.boulder.location.lon}"
+      :zoom="15"
+      :options="{
+        clickableIcons: false,
+        disableDefaultUI: true,
+      }"
+      style="width: 500px; height: 300px"
+      >
+        <GMapMarker
+        :key="data.boulder.sys.id"
+        :position="{lat: data.boulder.location.lat, lng: data.boulder.location.lon}"
+        >
+
+        </GMapMarker>
+      </GMapMap>
   </article>
 </template>
 
 <script setup>
-const route = useRoute()
+const route = useRoute();
 
 const { data } = await useAsyncGql({
   operation: 'boulderById',
