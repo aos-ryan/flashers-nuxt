@@ -1,15 +1,15 @@
 <template>
   <nav>
     <NuxtLink to="/">
-    <img src="~/assets/images/flashers.png"/>
+      <img src="~/assets/images/flashers.png" />
     </NuxtLink>
-    <NuxtLink to="/boulders"> 
-      <div>Boulders</div> 
+    <NuxtLink to="/boulders">
+      <div>Boulders</div>
     </NuxtLink>
-    <NuxtLink to="/create"> 
+    <NuxtLink to="/create">
       <div>Create New Climb</div>
     </NuxtLink>
-    <NuxtLink to="/about"> 
+    <NuxtLink to="/about">
       <div>About</div>
     </NuxtLink>
   </nav>
@@ -22,6 +22,7 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: black;
 }
 img {
   width: 250px;
