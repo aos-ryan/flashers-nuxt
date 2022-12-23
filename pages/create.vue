@@ -24,13 +24,30 @@
       </div>
       <div class="add-photo">
         <a
-          id="take-photo"
-          @click="takePhoto"
+          class="photo-button"
+          @click="startCamera"
         >
-          Take photo
+          Turn on Camera
         </a>
       </div>
     </form>
+    <div class="camera-capture">
+      <video id="video">
+        Press the take photo button to allow acesss to your camera
+      </video>
+      <a
+        class="photo-button"
+        @click="capturePhoto"
+        >Take Photo</a
+      >
+    </div>
+    <canvas id="canvas"></canvas>
+    <div class="output">
+      <img
+        id="photo"
+        alt="The screen capture will appear in this box"
+      />
+    </div>
   </div>
 </template>
 
@@ -38,16 +55,39 @@
 const name = ref("");
 const grade = ref("");
 const description = ref("");
-const uploadValue = ref("");
+const photoWidth = ref(300);
+const photoHeight = ref(300);
 
 async function generateResponse() {
   const { data } = await useFetch("/api/openai");
   name.value = data.value.choices[0].text;
 }
 
-function takePhoto() {
-  console.log("clicked!");
-  navigator.mediaDevices.getUserMedia({ video: true });
+function startCamera() {
+  const video = document.getElementById("video");
+  const canvas = document.getElementById("canvas");
+
+  navigator.mediaDevices
+    .getUserMedia({ video: true, audio: false })
+    .then((stream) => {
+      video.srcObject = stream;
+      video.play();
+      canvas.setAttribute("width", video.width);
+      photoWidth.value = video.width;
+      canvas.setAttribute("height", video.height);
+      photoHeight.value = video.height;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+function capturePhoto() {
+  const context = canvas.getContext("2d");
+  context.drawImage(video, 0, 0, photoWidth, photoHeight);
+
+  const data = canvas.toDataURL("image/png");
+  photo.setAttribute("src", data);
 }
 </script>
 
@@ -74,7 +114,7 @@ function takePhoto() {
   margin-top: 1rem;
 }
 
-#take-photo {
+.photo-button {
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   text-decoration: none;
