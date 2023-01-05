@@ -5,16 +5,15 @@ const { data } = await useAsyncGql("featuredBoulders");
 <template>
   <main>
     <h1>Featured Boulders</h1>
-    <div
-      class="index-container"
-      v-for="boulder in data?.boulderCollection.items"
-    >
-      <FeatBoulderCard
-        :name="boulder.name"
-        :id="boulder.sys.id"
-        :grade="boulder.grade"
-        :url="boulder.image?.url"
-      />
+    <div class="index-container">
+      <div v-for="boulder in data?.boulderCollection.items">
+        <FeatBoulderCard
+          :name="boulder.name"
+          :id="boulder.sys.id"
+          :grade="boulder.grade"
+          :url="boulder.image?.url"
+        />
+      </div>
     </div>
   </main>
 </template>
@@ -24,7 +23,5 @@ const { data } = await useAsyncGql("featuredBoulders");
   width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
 }
 </style>
