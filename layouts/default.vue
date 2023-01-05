@@ -1,5 +1,9 @@
 <script setup>
 const isActive = ref(false);
+
+function handleMenuSelect() {
+  isActive.value = !isActive.value;
+}
 </script>
 
 <template>
@@ -15,7 +19,7 @@ const isActive = ref(false);
         class="navbar_toggle"
         :class="{ active: isActive }"
         id="mobile_menu"
-        @click="isActive = !isActive"
+        @click="handleMenuSelect"
       >
         <span class="bar"></span>
         <span class="bar"></span>
@@ -29,21 +33,25 @@ const isActive = ref(false);
           to="/"
           class="navbar_link"
           id="home_link"
+          @click="handleMenuSelect"
           >Home
         </NuxtLink>
         <NuxtLink
           to="/boulders"
           class="navbar_link"
+          @click="handleMenuSelect"
           >Boulders</NuxtLink
         >
         <NuxtLink
           to="/create"
           class="navbar_link"
+          @click="handleMenuSelect"
           >Create New Climb</NuxtLink
         >
         <NuxtLink
           to="/about"
           class="navbar_link"
+          @click="handleMenuSelect"
           >About</NuxtLink
         >
       </div>
@@ -58,7 +66,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: #131313;
   font-size: 1.2rem;
   position: sticky;
   top: 0;
