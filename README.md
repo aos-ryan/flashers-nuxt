@@ -25,3 +25,4 @@
 - Refactor media stream for mobile / different capture devices (when user leaves page the media stream should also end)
 - GSAP scrolltrigger animations (fix scroll snapping on homepage when on desktop)
 - More advanced mobile / dynamic styling
+- Slugs for routing

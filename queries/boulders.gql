@@ -20,8 +20,9 @@ query allBoulders {
     }
   }
 }
+
 query featuredBoulders {
-  boulderCollection(where: {featured: true}) {
+  boulderCollection(where: { featured: true }) {
     items {
       sys {
         id
@@ -43,22 +44,22 @@ query featuredBoulders {
   }
 }
 
-query boulderById ($id: String!) {
-  boulder (id: $id) {
+query boulderById($id: String!) {
+  boulder(id: $id) {
     sys {
       id
     }
-      name
-      grade
-      description {
-        json
-      }
-      image {
-        url
-      }
-      location {
-        lat
-        lon
-      }    
+    name
+    grade
+    description {
+      json
+    }
+    image {
+      url
+    }
+    location {
+      lat
+      lon
+    }
   }
 }

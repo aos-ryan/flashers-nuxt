@@ -50,16 +50,16 @@
         <video
           id="video"
           v-show="!isPhotoTaken"
-          :width="450"
-          :height="337.5"
+          width="450"
+          height="337.5"
         >
           Press the take photo button to allow acesss to your camera
         </video>
         <canvas
           id="canvas"
           v-show="isPhotoTaken"
-          :width="450"
-          :height="337.5"
+          width="450"
+          height="337.5"
         ></canvas>
         <a
           class="capture-button"
@@ -74,13 +74,13 @@
 </template>
 
 <script setup>
-const name = ref("");
-const grade = ref("");
-const description = ref("");
-const isCameraOpen = ref(false);
-const isPhotoTaken = ref(false);
-const isShotPhoto = ref(false);
-const isLoading = ref(false);
+const name = ref(""),
+  grade = ref(""),
+  description = ref(""),
+  isCameraOpen = ref(false),
+  isPhotoTaken = ref(false),
+  isShotPhoto = ref(false),
+  isLoading = ref(false);
 
 async function generateResponse() {
   const { data } = await useFetch("/api/openai");
