@@ -36,28 +36,39 @@
       <div class="add-photo">
         <a
           class="photo-button"
-          @click="startCamera"
+          @click="toggleCamera"
         >
-          Turn on Camera
+          Toggle camera
         </a>
       </div>
     </form>
-    <div class="camera-capture">
-      <video id="video">
-        Press the take photo button to allow acesss to your camera
-      </video>
-      <a
-        class="photo-button"
-        @click="capturePhoto"
-        >Take Photo</a
+    <div class="camera-container">
+      <div
+        class="camera-capture"
+        v-show="isCameraOpen"
       >
-    </div>
-    <canvas id="canvas"></canvas>
-    <div class="output">
-      <img
-        id="photo"
-        alt="The screen capture will appear in this box"
-      />
+        <video
+          id="video"
+          v-show="!isPhotoTaken"
+          :width="450"
+          :height="337.5"
+        >
+          Press the take photo button to allow acesss to your camera
+        </video>
+        <canvas
+          id="canvas"
+          v-show="isPhotoTaken"
+          :width="450"
+          :height="337.5"
+        ></canvas>
+        <a
+          class="capture-button"
+          @click="capturePhoto"
+        >
+          <p v-if="!isPhotoTaken">Take Photo</p>
+          <p v-if="isPhotoTaken">Retake Photo</p>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -66,39 +77,57 @@
 const name = ref("");
 const grade = ref("");
 const description = ref("");
-const photoWidth = ref(300);
-const photoHeight = ref(300);
+const isCameraOpen = ref(false);
+const isPhotoTaken = ref(false);
+const isShotPhoto = ref(false);
+const isLoading = ref(false);
 
 async function generateResponse() {
   const { data } = await useFetch("/api/openai");
   name.value = data.value.choices[0].text;
 }
-
+function toggleCamera() {
+  if (isCameraOpen.value) {
+    isCameraOpen.value = false;
+    isPhotoTaken.value = false;
+    isShotPhoto.value = false;
+    stopCamera();
+  } else {
+    isCameraOpen.value = true;
+    startCamera();
+  }
+}
 function startCamera() {
+  isLoading.value = true;
   const video = document.getElementById("video");
-  const canvas = document.getElementById("canvas");
 
   navigator.mediaDevices
     .getUserMedia({ video: true, audio: false })
     .then((stream) => {
+      isLoading.value = false;
       video.srcObject = stream;
       video.play();
-      canvas.setAttribute("width", video.width);
-      photoWidth.value = video.width;
-      canvas.setAttribute("height", video.height);
-      photoHeight.value = video.height;
     })
     .catch((err) => {
       console.log(err);
     });
 }
 
-function capturePhoto() {
-  const context = canvas.getContext("2d");
-  context.drawImage(video, 0, 0, photoWidth, photoHeight);
+function stopCamera() {
+  const video = document.getElementById("video");
+  let tracks = video.srcObject.getTracks();
+  tracks.forEach((track) => {
+    track.stop();
+  });
+}
 
-  const data = canvas.toDataURL("image/png");
-  photo.setAttribute("src", data);
+function capturePhoto() {
+  const canvas = document.getElementById("canvas");
+  const video = document.getElementById("video");
+  const context = canvas.getContext("2d");
+  isPhotoTaken.value = !isPhotoTaken.value;
+  context.drawImage(video, 0, 0, 450, 337.5);
+  console.log("Photo capture button pressed");
 }
 </script>
 
@@ -119,6 +148,35 @@ function capturePhoto() {
   border-color: #000000;
   cursor: pointer;
   margin-left: 1rem;
+}
+
+.camera-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 500px;
+}
+
+.camera-capture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.capture-button {
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  text-decoration: none;
+  padding: 4px;
+  margin-top: 1rem;
+  border-color: #000000;
+  cursor: pointer;
+  border-radius: 10%;
 }
 
 .add-photo {
