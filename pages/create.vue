@@ -16,7 +16,18 @@
       </div>
       <div class="form-input">
         <label>Grade: </label>
-        <input v-model="grade" />
+        <select v-model="grade">
+          <option>V1</option>
+          <option>V2</option>
+          <option>V3</option>
+          <option>V4</option>
+          <option>V5</option>
+          <option>V6</option>
+          <option>V7</option>
+          <option>V8</option>
+          <option>V9</option>
+          <option>V10</option>
+        </select>
       </div>
       <div class="form-input">
         <label>Description: </label>

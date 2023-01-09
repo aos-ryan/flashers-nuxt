@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   build: {
-    transpile: ["@fawmi/vue-google-maps"]
+    transpile: ["@fawmi/vue-google-maps", "gsap"]
   },
   modules: ["nuxt-graphql-client"],
   runtimeConfig: {

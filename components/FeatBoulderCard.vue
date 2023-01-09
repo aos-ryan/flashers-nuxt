@@ -3,22 +3,29 @@ const props = defineProps({
   name: String,
   id: String,
   grade: String,
-  url: String
+  url: String,
+  description: String
 });
 </script>
 <template>
-  <article
-    class="boulder-card"
-    :key="id"
+  <NuxtLink
+    class="boulder_link"
+    :to="/boulders/ + id"
   >
-    <div class="boulder-card-image">
-      <img :src="`${url}`" />
-    </div>
-    <div class="boulder-card-details">
-      <p>{{ name }}</p>
-      <p>{{ grade }}</p>
-    </div>
-  </article>
+    <article
+      class="boulder-card"
+      :key="id"
+    >
+      <div class="boulder-card-image">
+        <img :src="`${url}`" />
+      </div>
+      <div class="boulder-card-details">
+        <p>{{ name }}</p>
+        <p>{{ grade }}</p>
+        <p>{{ description }}</p>
+      </div>
+    </article>
+  </NuxtLink>
 </template>
 
 <style scoped>
@@ -47,5 +54,11 @@ article {
   flex-direction: column;
   padding-left: 1rem;
   max-width: 100px;
+}
+.boulder-card-details p {
+  padding-top: 1rem;
+}
+.boulder_link {
+  text-decoration: none;
 }
 </style>

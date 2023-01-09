@@ -12,6 +12,7 @@ const { data } = await useAsyncGql("featuredBoulders");
           :id="boulder.sys.id"
           :grade="boulder.grade"
           :url="boulder.image?.url"
+          :description="boulder.description.json.content[0].content[0].value"
         />
       </div>
     </div>

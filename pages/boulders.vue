@@ -63,4 +63,13 @@ li {
 .boulder_link:hover {
   background-position: 0%;
 }
+
+@media screen and (max-width: 960px) {
+  .boulder_link {
+    font-size: 15px;
+  }
+  .sidebar {
+    min-width: fit-content;
+  }
+}
 </style>

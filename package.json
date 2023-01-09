@@ -13,8 +13,9 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "0.9.72",
+    "gsap": "^3.11.4",
     "nuxt-graphql-client": "^0.2.23",
-    "openai": "^3.1.0",
-    "@fawmi/vue-google-maps": "0.9.72"
+    "openai": "^3.1.0"
   }
 }
