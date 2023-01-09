@@ -1,22 +1,29 @@
 <script setup>
+definePageMeta({
+  pageTransition: {
+    name: "slide-right"
+  }
+});
 const { data } = await useAsyncGql("allBoulders");
 </script>
 
 <template>
-  <div class="sidebar">
-    <ul>
-      <li v-for="boulder in data?.boulderCollection.items">
-        <NuxtLink
-          class="boulder_link"
-          :to="/boulders/ + boulder.sys.id"
-          >{{ boulder.name }}</NuxtLink
-        >
-      </li>
-    </ul>
-  </div>
-  <div class="main-content">
-    <NuxtPage />
-  </div>
+  <main>
+    <div class="sidebar">
+      <ul>
+        <li v-for="boulder in data?.boulderCollection.items">
+          <NuxtLink
+            class="boulder_link"
+            :to="/boulders/ + boulder.sys.id"
+            >{{ boulder.name }}</NuxtLink
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <NuxtPage />
+    </div>
+  </main>
 </template>
 
 <style scoped>
