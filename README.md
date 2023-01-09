@@ -1,42 +1,26 @@
-# Nuxt 3 Minimal Starter
+# Flashers Learning Project
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Learned
 
-## Setup
+- Composition API (ref, computed properties)
+- Pages / Components (props, v-for iterating through data, v-model for data binding, nested pages)
+- Script setup
+- Scoped styling
+- Vue router (Nuxt Link, dynamic page routing)
+- Nuxt config (runtime config, environmental variables, transpile)
+- Nuxt page transition animations
+- Contentful JavaScript api (content delivery)
+- Contentful graphql api (content delivery)
+- Third party apis
+  - Server folder (openai)
+  - Plug-ins (google maps)
+- Conditional rendering (v-show, v-if)
+- CSS (scroll snapping, basic transition / transform animations)
+- JavaScript media stream api (using user device for video / audio captures)
 
-Make sure to install the dependencies:
+## To Do
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Contentful content management api (to create entries)
+- Refactor media stream for mobile / different capture devices (when user leaves page the media stream should also end)
+- GSAP scrolltrigger animations (fix scroll snapping on homepage when on desktop)
+- More advanced mobile / dynamic styling
