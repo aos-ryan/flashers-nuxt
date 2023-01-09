@@ -21,6 +21,7 @@
 ## To Do
 
 - Contentful content management api (to create entries)
+- Google Maps Plugin / API (user placeable pins for creation, map view for looking at locations??)
 - Refactor media stream for mobile / different capture devices (when user leaves page the media stream should also end)
 - GSAP scrolltrigger animations (fix scroll snapping on homepage when on desktop)
 - More advanced mobile / dynamic styling
