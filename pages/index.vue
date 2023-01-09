@@ -19,8 +19,15 @@ const { data } = await useAsyncGql("featuredBoulders");
 </template>
 
 <style scoped>
+h1 {
+  padding-bottom: 25px;
+  padding-left: 25px;
+}
 .index-container {
   width: 100vw;
+  max-height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
   display: flex;
   flex-direction: column;
 }

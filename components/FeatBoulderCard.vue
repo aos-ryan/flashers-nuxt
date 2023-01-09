@@ -23,21 +23,29 @@ const props = defineProps({
 
 <style scoped>
 article {
-  height: 500px;
+  height: 900px;
   width: 100%;
 }
-img {
-  width: 350px;
-  height: 250px;
+.boulder-card-image {
+  width: 750px;
+  height: 450px;
+}
+.boulder-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .boulder-card {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  scroll-snap-align: start;
 }
 .boulder-card-details {
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
+  max-width: 100px;
 }
 </style>
