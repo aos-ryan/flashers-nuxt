@@ -135,7 +135,6 @@ function capturePhoto() {
 .add-boulder-form {
   display: flex;
   flex-direction: column;
-  width: 33%;
 }
 .form-input {
   margin-top: 1rem;

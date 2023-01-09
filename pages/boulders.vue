@@ -21,7 +21,7 @@ const { data } = await useAsyncGql("allBoulders");
 
 <style scoped>
 .sidebar {
-  background-color: chartreuse;
+  background-color: rgb(125, 129, 122);
   width: 20%;
   height: 100vh;
   float: left;
@@ -57,7 +57,7 @@ li {
   bottom: -3px;
   z-index: 0;
   position: absolute;
-  background: #23abd4;
+  /* background: #23abd4; */
   transition: all 0.3s ease-in-out;
 }
 .boulder_link:hover {

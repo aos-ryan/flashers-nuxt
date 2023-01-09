@@ -60,5 +60,10 @@ article {
 }
 .boulder_link {
   text-decoration: none;
+  cursor: pointer;
+}
+.boulder_link:visited {
+  text-decoration: none;
+  color: #1f1f1f;
 }
 </style>
