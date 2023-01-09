@@ -66,7 +66,7 @@
           @click="capturePhoto"
         >
           <p v-if="!isPhotoTaken">Take Photo</p>
-          <p v-if="isPhotoTaken">Retake Photo</p>
+          <p v-else>Retake Photo</p>
         </a>
       </div>
     </div>
