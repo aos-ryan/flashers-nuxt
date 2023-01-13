@@ -185,7 +185,6 @@ body {
   margin: 0;
   height: 100%;
   -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
 }
 
 body {
@@ -200,7 +199,6 @@ li {
   max-width: 800px;
 }
 
-/* HEADER */
 header {
   position: fixed;
   top: 0px;

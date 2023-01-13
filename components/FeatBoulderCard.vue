@@ -30,8 +30,9 @@ const props = defineProps({
 
 <style scoped>
 article {
-  height: 900px;
+  /* height: 900px; */
   width: 100%;
+  padding-bottom: 20px;
 }
 .boulder-card-image {
   width: 750px;
@@ -47,7 +48,8 @@ article {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
+  height: auto;
 }
 .boulder-card-details {
   display: flex;
