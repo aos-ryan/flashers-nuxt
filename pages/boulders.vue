@@ -1,9 +1,9 @@
 <script setup>
-definePageMeta({
-  pageTransition: {
-    name: "slide-right"
-  }
-});
+// definePageMeta({
+//   pageTransition: {
+//     name: "slide-right"
+//   }
+// });
 const { data } = await useAsyncGql("allBoulders");
 </script>
 

@@ -3,10 +3,10 @@ import gsap from "gsap";
 const { data } = await useAsyncGql("featuredBoulders");
 const elements = ref([]);
 
-definePageMeta({
-  pageTransition: false,
-  layoutTransition: false
-});
+// definePageMeta({
+//   pageTransition: false,
+//   layoutTransition: false
+// });
 
 onMounted(() => {
   const boxes = Object.values(elements.value);
@@ -16,8 +16,7 @@ onMounted(() => {
       x: -2000,
       scrollTrigger: {
         trigger: box,
-        start: "top center",
-        markers: true
+        start: "top center"
       }
     });
   });
